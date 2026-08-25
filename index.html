@@ -6,7 +6,7 @@
 <title>Estrella G. Lewis | PR & Creative Marketing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0C0C0E;
@@ -155,6 +155,27 @@
     flex-basis:100%;
     max-width:640px;
   }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:38px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    text-decoration:none;
+    border:1px solid var(--brass);
+    padding:13px 24px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .btn:hover{
+    background:var(--brass);
+    color:var(--bone);
+  }
+  .btn svg{width:13px;height:13px;transition:transform .25s ease;}
+  .btn:hover svg{transform:translateX(3px);}
   .focus-list{
     list-style:none;
     display:grid;
@@ -192,6 +213,51 @@
   }
   .contact-icons a:hover{color:var(--lacquer);}
   .contact-icons svg{width:19px;height:19px;}
+
+  .gallery{
+    margin-top:44px;
+  }
+  .gallery-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-bottom:18px;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+  }
+  .gallery-item{
+    aspect-ratio:4/5;
+    border:1px dashed var(--line);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:14px;
+    position:relative;
+  }
+  .gallery-item .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--brass);
+  }
+  .gallery-item .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--slate);
+    line-height:1.5;
+  }
+  @media (max-width:700px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:420px){
+    .gallery-grid{grid-template-columns:1fr;}
+  }
 
   /* Section framing */
   section{padding:0 6vw;}
@@ -300,9 +366,10 @@
     margin-bottom:18px;
   }
   .work-title{
-    font-family:'Fraunces',serif;
+    font-family:'Playfair Display',serif;
     font-size:34px;
     font-style:italic;
+    font-weight:600;
     line-height:1.2;
   }
   .work-desc{
@@ -385,9 +452,10 @@
 </div>
 
 <nav>
-  <div class="nav-mark">Estrella G. Lewis</div>
+  <a class="nav-mark" href="index.html" style="text-decoration:none;color:var(--ink);">Estrella G. Lewis</a>
   <div class="nav-links">
     <a href="#work">Work</a>
+    <a href="selected-coverage.html">Coverage</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
   </div>
@@ -419,6 +487,7 @@
       </ul>
     </div>
   </div>
+  <a class="btn" href="selected-coverage.html">View Selected Coverage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </section>
 
 <section>
@@ -491,6 +560,18 @@
           <div class="k">Region</div>
           <div class="v">Los Angeles</div>
         </div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-label">Visuals, added as work comes in</div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><div class="num">01</div><div class="tag">Event Photography</div></div>
+        <div class="gallery-item"><div class="num">02</div><div class="tag">Press Coverage</div></div>
+        <div class="gallery-item"><div class="num">03</div><div class="tag">Behind the Scenes</div></div>
+        <div class="gallery-item"><div class="num">04</div><div class="tag">Talent & Guests</div></div>
+        <div class="gallery-item"><div class="num">05</div><div class="tag">Brand Moments</div></div>
+        <div class="gallery-item"><div class="num">06</div><div class="tag">Coming Soon</div></div>
       </div>
     </div>
   </div>
