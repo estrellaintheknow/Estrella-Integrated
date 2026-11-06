@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrella G. Lewis | PR, Analytics &amp; Creative Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C0C0E;
+    --bone:#FFFFFF;
+    --lacquer:#C11F3D;
+    --brass:#B8935A;
+    --slate:#6E6B66;
+    --line:#D8D2C4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bone);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--lacquer);color:var(--bone);}
+
+  /* Ticker */
+  .ticker-wrap{
+    background:var(--ink);
+    color:var(--bone);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:9px 0;
+    border-bottom:1px solid var(--ink);
+  }
+  .ticker{
+    display:inline-block;
+    padding-left:100%;
+    animation:ticker 28s linear infinite;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+  }
+  .ticker span{margin-right:48px;}
+  .ticker .accent{color:var(--brass);}
+  @keyframes ticker{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker{animation:none;padding-left:24px;}
+  }
+
+  /* Nav */
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 6vw;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:500;
+    font-size:26px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    order:2;
+  }
+  .nav-links{
+    order:1;
+    display:flex;
+    gap:32px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .nav-links a{
+    color:var(--ink);
+    text-decoration:none;
+    position:relative;
+    padding-bottom:3px;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;bottom:0;
+    width:0;height:1px;
+    background:var(--lacquer);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* Section jump nav — the clickable discipline pills */
+  .section-nav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--bone);
+    border-bottom:1px solid var(--line);
+    padding:14px 6vw;
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .section-nav::-webkit-scrollbar{display:none;}
+  .section-nav a{
+    flex:0 0 auto;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+    color:var(--ink);
+    text-decoration:none;
+    border:1px solid var(--line);
+    padding:9px 16px;
+    white-space:nowrap;
+    transition:background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .section-nav a:hover,
+  .section-nav a.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--bone);
+  }
+
+  /* Hero */
+  .hero{
+    padding:9vw 6vw 6vw;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--lacquer);
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px;height:1px;
+    background:var(--lacquer);
+    display:inline-block;
+  }
+  h1{
+    font-family:'Bodoni Moda',serif;
+    font-weight:400;
+    font-size:clamp(44px, 8vw, 108px);
+    line-height:0.96;
+    letter-spacing:-0.01em;
+  }
+  h1 em{
+    font-family:'Bodoni Moda',serif;
+    font-style:normal;
+    font-weight:500;
+    color:var(--lacquer);
+  }
+  .hero-sub{
+    margin-top:34px;
+    max-width:600px;
+    font-size:17px;
+    line-height:1.6;
+    color:var(--slate);
+  }
+  .hero-meta{
+    margin-top:52px;
+    display:flex;
+    gap:56px;
+    flex-wrap:wrap;
+    padding-top:26px;
+    border-top:1px solid var(--line);
+  }
+  .hero-meta div{max-width:200px;}
+  .hero-meta .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-bottom:6px;
+  }
+  .hero-meta .v{font-size:14px;}
+  .hero-meta .wide{
+    flex-basis:100%;
+    max-width:680px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:38px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    text-decoration:none;
+    border:1px solid var(--brass);
+    padding:13px 24px;
+    transition:background .25s ease, color .25s ease;
+    cursor:pointer;
+    background:transparent;
+  }
+  .btn:hover{
+    background:var(--brass);
+    color:var(--bone);
+  }
+  .btn svg{width:13px;height:13px;transition:transform .25s ease;}
+  .btn:hover svg{transform:translateX(3px);}
+  .btn-dark{
+    border-color:var(--bone);
+    color:var(--bone);
+  }
+  .btn-dark:hover{
+    background:var(--bone);
+    color:var(--ink);
+  }
+  .focus-list{
+    list-style:none;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(150px,1fr));
+    gap:8px 28px;
+  }
+  .focus-list li{
+    font-size:14px;
+    line-height:1.4;
+    position:relative;
+    padding-left:14px;
+  }
+  .focus-list li::before{
+    content:'';
+    position:absolute;
+    left:0;top:7px;
+    width:6px;height:6px;
+    background:var(--brass);
+  }
+  @media (max-width:500px){
+    .focus-list{grid-template-columns:1fr;}
+  }
+
+  .contact-icons{
+    display:flex;
+    gap:18px;
+    align-items:center;
+  }
+  .contact-icons a{
+    color:var(--ink);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    transition:color .25s ease;
+  }
+  .contact-icons a:hover{color:var(--lacquer);}
+  .contact-icons svg{width:19px;height:19px;}
+
+  .as-seen-in{
+    margin-top:44px;
+  }
+  .asi-title{
+    font-family:'Bodoni Moda',serif;
+    font-style:italic;
+    font-size:24px;
+    color:var(--ink);
+    margin-bottom:24px;
+  }
+  .asi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+  }
+  .asi-card{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+  }
+  .asi-preview{
+    aspect-ratio:16/10;
+    border:1px solid var(--line);
+    background:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    transition:transform .25s ease;
+  }
+  .asi-card:hover .asi-preview{transform:translateY(-3px);}
+  .asi-outlet-tag{
+    margin-top:12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  .asi-headline{
+    margin-top:6px;
+    font-family:'Bodoni Moda',serif;
+    font-size:15.5px;
+    line-height:1.45;
+    color:var(--ink);
+  }
+  .wm-forbes, .wm-vogue{
+    font-family:'Bodoni Moda', serif;
+    font-weight:700;
+    font-size:27px;
+    letter-spacing:0.5px;
+    color:#fff;
+    background:#000;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .wm-vogue{
+    background:#fff;
+    color:#000;
+    letter-spacing:2px;
+  }
+  .wm-elle{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:7px;
+    color:#111;
+  }
+  .wm-coveteur{
+    font-family:'Cormorant Garamond', serif;
+    font-size:23px;
+    letter-spacing:1px;
+    color:#1a1a1a;
+    display:flex;
+    align-items:center;
+  }
+  .wm-coveteur .slash{
+    font-style:italic;
+    font-size:28px;
+    margin:0 1px;
+    transform:skewX(-10deg);
+  }
+  @media (max-width:700px){
+    .asi-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:420px){
+    .asi-grid{grid-template-columns:1fr;}
+  }
+
+  /* Section framing */
+  section{padding:0 6vw;}
+  .section-inner{
+    padding:80px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .label-row{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:40px;
+  }
+  .label-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--brass);
+  }
+  .label-title{
+    font-family:'Bodoni Moda',serif;
+    font-style:italic;
+    font-size:26px;
+  }
+  .label-sub{
+    margin-top:14px;
+    max-width:560px;
+    font-size:15px;
+    line-height:1.6;
+    color:var(--slate);
+  }
+
+  /* About */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:70px;
+  }
+  .about-grid p{
+    font-size:17px;
+    line-height:1.7;
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    color:var(--ink);
+  }
+  .about-grid p + p{margin-top:22px;}
+  .pull{
+    align-self:start;
+    padding-left:26px;
+    border-left:2px solid var(--lacquer);
+  }
+  .pull-text{
+    font-family:'Bodoni Moda',serif;
+    font-style:italic;
+    font-size:22px;
+    line-height:1.4;
+  }
+  .pull-cite{
+    margin-top:14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    color:var(--slate);
+    text-transform:uppercase;
+  }
+  @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* Disciplines overview */
+  .disc-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .disc-card{
+    background:var(--bone);
+    padding:36px 28px;
+    display:flex;
+    flex-direction:column;
+    text-decoration:none;
+    color:inherit;
+    transition:background .25s ease;
+  }
+  .disc-card:hover{background:#ece6d8;}
+  .disc-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--brass);
+    margin-bottom:18px;
+  }
+  .disc-name{
+    font-family:'Bodoni Moda',serif;
+    font-size:23px;
+    margin-bottom:12px;
+  }
+  .disc-desc{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--slate);
+    flex-grow:1;
+  }
+  .disc-link{
+    margin-top:22px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .disc-link svg{width:12px;height:12px;transition:transform .25s ease;}
+  .disc-card:hover .disc-link svg{transform:translateX(3px);}
+  @media (max-width:800px){
+    .disc-grid{grid-template-columns:1fr;}
+  }
+
+  /* Services */
+  .service-row{
+    display:grid;
+    grid-template-columns:60px 1fr 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .service-row:last-child{border-bottom:none;}
+  .service-num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--brass);
+    font-size:12px;
+  }
+  .service-name{
+    font-family:'Bodoni Moda',serif;
+    font-size:24px;
+    font-weight:400;
+  }
+  .service-desc{
+    color:var(--slate);
+    font-size:14.5px;
+    line-height:1.6;
+    max-width:420px;
+  }
+  @media (max-width:700px){
+    .service-row{grid-template-columns:1fr;gap:8px;}
+  }
+
+  /* Dark feature card (reused for Currently + Analytics) */
+  .feature-card{
+    background:var(--ink);
+    color:var(--bone);
+    padding:56px 6vw;
+    margin:0 -6vw;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+  }
+  .feature-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:18px;
+  }
+  .feature-title{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    font-style:italic;
+    font-weight:600;
+    line-height:1.2;
+  }
+  .feature-desc{
+    color:#c9c5bd;
+    font-size:15px;
+    line-height:1.7;
+    margin-top:18px;
+    max-width:440px;
+  }
+  .feature-stats{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .feature-stats div{
+    border-top:1px solid #333;
+    padding-top:14px;
+  }
+  .feature-stats .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#8a867e;
+  }
+  .feature-stats .v{
+    font-family:'Bodoni Moda',serif;
+    font-size:20px;
+    margin-top:6px;
+  }
+  @media (max-width:800px){ .feature-card{grid-template-columns:1fr;} }
+
+  /* Creative marketing offerings */
+  .creative-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px 60px;
+  }
+  .creative-item{
+    border-top:1px solid var(--line);
+    padding-top:20px;
+  }
+  .creative-item .service-num{display:block;margin-bottom:10px;}
+  .creative-name{
+    font-family:'Bodoni Moda',serif;
+    font-size:20px;
+    margin-bottom:10px;
+  }
+  .creative-desc{
+    color:var(--slate);
+    font-size:14px;
+    line-height:1.6;
+  }
+  @media (max-width:700px){
+    .creative-grid{grid-template-columns:1fr;gap:28px;}
+  }
+
+  /* Contact */
+  .contact{
+    padding:90px 0 70px;
+    text-align:left;
+  }
+  .contact h2{
+    font-family:'Bodoni Moda',serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:clamp(34px,5vw,58px);
+    max-width:640px;
+    line-height:1.15;
+  }
+  .contact-row{
+    margin-top:44px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .contact-email{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:16px;
+    color:var(--lacquer);
+    text-decoration:none;
+    border-bottom:1px solid var(--lacquer);
+    padding-bottom:3px;
+  }
+  footer{
+    padding:26px 6vw 40px;
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--slate);
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="accent">NOW BOOKING</span><span>PR · ANALYTICS · CREATIVE MARKETING</span><span class="accent">CURRENTLY IN MOTION</span><span>LIVE EVENT PRESS COVERAGE · LA / NY SENSIBILITY</span><span class="accent">EST. LOS ANGELES</span><span>PR · MARKETING · CREATIVE STRATEGY</span><span class="accent">NOW BOOKING</span><span>PR · ANALYTICS · CREATIVE MARKETING</span><span class="accent">CURRENTLY IN MOTION</span><span>LIVE EVENT PRESS COVERAGE · LA / NY SENSIBILITY</span><span class="accent">EST. LOS ANGELES</span><span>PR · MARKETING · CREATIVE STRATEGY</span>
+  </div>
+</div>
+
+<nav>
+  <a class="nav-mark" href="index.html" style="text-decoration:none;color:var(--ink);">Estrella G. Lewis</a>
+  <div class="nav-links">
+    <a href="#disciplines">Disciplines</a>
+    <a href="selected-coverage.html">Coverage</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- JUMP NAV — scrollable on mobile, one row on desktop -->
+<div class="section-nav" id="section-nav">
+  <a href="#bridge">The Bridge</a>
+  <a href="#disciplines">Disciplines</a>
+  <a href="#pr">PR &amp; Media</a>
+  <a href="#analytics">Analytics Marketing</a>
+  <a href="#creative">Creative Marketing</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<section class="hero">
+  <div class="eyebrow">Independent Publicist &amp; Integrated Marketer · Los Angeles</div>
+  <h1>Building brands, media, and strategy<br>that <em>move the room</em>.</h1>
+  <p class="hero-sub">I work across three connected disciplines: public relations, analytics-driven marketing, and creative strategy, for brands, founders, and creatives.</p>
+  <div class="hero-meta">
+    <div>
+      <div class="k">Background</div>
+      <div class="v">Public Relations, Media, and Integrated Marketing (evidence focused)</div>
+    </div>
+    <div>
+      <div class="k">Based</div>
+      <div class="v">Los Angeles, CA</div>
+    </div>
+    <div class="wide">
+      <div class="k">Current and Previous Focuses</div>
+      <ul class="focus-list">
+        <li>Music, nightlife, and creative event press</li>
+        <li>Fashion and accessories</li>
+        <li>Fine jewelry</li>
+        <li>Skincare brands</li>
+        <li>Health, longevity, and wellness</li>
+        <li>Supplement brands</li>
+        <li>Brand positioning and integrated marketing communications</li>
+      </ul>
+    </div>
+  </div>
+  <a class="btn" href="selected-coverage.html">View Selected Coverage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</section>
+
+<section id="bridge">
+  <div class="section-inner">
+    <div class="label-row">
+      <div class="label-num">01</div>
+      <div class="label-title">The Bridge</div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>I work at the epicenter of analytics, creativity, and execution amongst creatives, founders, experts, and brands on one side, press and media relationships on the other.</p>
+        <p>I approach brand growth and strategy using foundations of PR and marketing communications. These foundations subsequently turn into real working relationships and experiences.</p>
+        <p>I graduated in 2025 with a specialized business administration degree in Integrated Marketing Communications. I found my real passion at the center of creativity and strategy. Good storytelling is backed by better data, and these are the campaigns that inspire action.</p>
+      </div>
+      <div class="pull">
+        <div class="pull-text">"Uncertainty is not evidence you're unprepared, developing self-trust is the evidence."</div>
+        <div class="pull-cite">Emma Grede</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="disciplines">
+  <div class="section-inner">
+    <div class="label-row">
+      <div class="label-num">02</div>
+      <div class="label-title">Disciplines</div>
+    </div>
+    <p class="label-sub" style="margin-bottom:40px;">Three ways of working that feed each other: press secures attention, analytics shows what to do with it, and creative gives the work something worth covering.</p>
+    <div class="disc-grid">
+      <a class="disc-card" href="#pr">
+        <div class="disc-num">01</div>
+        <div class="disc-name">PR &amp; Media Relations</div>
+        <div class="disc-desc">Earned media, press outreach, and placements across unique industries including fashion, fine jewelry, bridal, lifestyle, science, supplements, and handbags, plus live event press strategy.</div>
+        <div class="disc-link">View section <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="disc-card" href="#analytics">
+        <div class="disc-num">02</div>
+        <div class="disc-name">Analytics Marketing</div>
+        <div class="disc-desc">Audience insight and measurement, turning market research and campaign activity into numbers that actually inform the consumer profile and next decision.</div>
+        <div class="disc-link">View section <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="disc-card" href="#creative">
+        <div class="disc-num">03</div>
+        <div class="disc-name">Creative Marketing</div>
+        <div class="disc-desc">Brand storytelling, content direction, and campaign execution that drive meaning to the media and data.</div>
+        <div class="disc-link">View section <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="pr">
+  <div class="section-inner">
+    <div class="label-row">
+      <div class="label-num">03</div>
+      <div class="label-title">PR &amp; Media Relations</div>
+    </div>
+    <div class="feature-card">
+      <div>
+        <div class="feature-tag">In Progress</div>
+        <div class="feature-title">Media strategy for an upcoming Southern California event series.</div>
+        <div class="feature-desc">Currently leading press positioning and media outreach for a growing SoCal event brand, building out coverage ahead of its next date.</div>
+      </div>
+      <div class="feature-stats">
+        <div>
+          <div class="k">Status</div>
+          <div class="v">Active engagement</div>
+        </div>
+        <div>
+          <div class="k">Region</div>
+          <div class="v">Los Angeles</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="as-seen-in">
+      <div class="asi-title">As Seen In</div>
+      <div class="asi-grid">
+        <a class="asi-card" href="https://coveteur.com/may-2026-most-coveted" target="_blank" rel="noopener noreferrer">
+          <div class="asi-preview"><div class="wm-coveteur">CO<span class="slash">/</span>ETEUR</div></div>
+          <div class="asi-outlet-tag">Coveteur · 2026</div>
+          <div class="asi-headline">Most Coveted: Our May Fashion & Beauty Favorites</div>
+        </a>
+        <a class="asi-card" href="https://www.forbes.com/sites/poojashah/2026/08/19/heres-why-the-tennis-necklace-earned-its-timeless-status/" target="_blank" rel="noopener noreferrer">
+          <div class="asi-preview"><div class="wm-forbes">Forbes</div></div>
+          <div class="asi-outlet-tag">Forbes · 2026</div>
+          <div class="asi-headline">Here's Why The Tennis Necklace Earned Its Timeless Status</div>
+        </a>
+        <a class="asi-card" href="https://www.vogue.com/article/best-jewelry-brands" target="_blank" rel="noopener noreferrer">
+          <div class="asi-preview"><div class="wm-vogue">VOGUE</div></div>
+          <div class="asi-outlet-tag">Vogue · 2022</div>
+          <div class="asi-headline">Need to Know Now: The Vogue Jewelry Team's Favorite Jewelry Brands</div>
+        </a>
+        <a class="asi-card" href="https://www.elle.com/fashion/shopping/a70820776/carolyn-bessette-kennedy-90s-bags/" target="_blank" rel="noopener noreferrer">
+          <div class="asi-preview"><div class="wm-elle">ELLE</div></div>
+          <div class="asi-outlet-tag">ELLE · 2026</div>
+          <div class="asi-headline">The Carolyn Bessette Kennedy-Coded '90s-Inspired Bags</div>
+        </a>
+      </div>
+      <a class="btn" style="margin-top:32px;" href="selected-coverage.html">View Full Coverage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="analytics">
+  <div class="section-inner">
+    <div class="label-row">
+      <div class="label-num">04</div>
+      <div class="label-title">Analytics Marketing</div>
+    </div>
+    <p class="label-sub" style="margin-bottom:40px;">Campaign and audience data translated into decisions, not just dashboards for their own sake.</p>
+    <div class="feature-card">
+      <div>
+        <div class="feature-tag">Featured Project</div>
+        <div class="feature-title">HERS365 — Marketing Analytics Dashboard</div>
+        <!-- PLACEHOLDER COPY: replace with the real one-liner on what HERS365 tracks (campaign performance? audience segments? content calendar + KPIs?) -->
+        <div class="feature-desc">A live analytics dashboard built to track marketing performance and surface the metrics that actually move decisions, from campaign activity to audience behavior.</div>
+      </div>
+      <div class="feature-stats">
+        <div>
+          <div class="k">Project</div>
+          <div class="v">HERS365</div>
+        </div>
+        <div>
+          <div class="k">Type</div>
+          <div class="v">Marketing Analytics Dashboard</div>
+        </div>
+      </div>
+    </div>
+    <a class="btn" style="margin-top:32px;" href="https://claude.ai/artifact/APNnW3iLctnsRiDs6xiXVA" target="_blank" rel="noopener noreferrer">View Live Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<section id="creative">
+  <div class="section-inner">
+    <div class="label-row">
+      <div class="label-num">05</div>
+      <div class="label-title">Creative Marketing</div>
+    </div>
+    <p class="label-sub" style="margin-bottom:40px;">Brand storytelling, content direction, and campaign execution that drive meaning to the media and data.</p>
+    <!-- PLACEHOLDER OFFERINGS: swap in real examples/projects once you have them, same as the PR feature-card above -->
+    <div class="creative-grid">
+      <div class="creative-item">
+        <div class="service-num">01</div>
+        <div class="creative-name">Content &amp; Messaging Strategy</div>
+        <div class="creative-desc">Shaping the story a brand tells across platforms so it's consistent, distinct, and actually worth covering.</div>
+      </div>
+      <div class="creative-item">
+        <div class="service-num">02</div>
+        <div class="creative-name">Event Creative Direction</div>
+        <div class="creative-desc">Positioning live experiences and brand moments so the creative and the press angle are built together, not bolted on after.</div>
+      </div>
+      <div class="creative-item">
+        <div class="service-num">03</div>
+        <div class="creative-name">Campaign Concepting</div>
+        <div class="creative-desc">Developing the core idea behind a launch or activation before a single asset gets made.</div>
+      </div>
+      <div class="creative-item">
+        <div class="service-num">04</div>
+        <div class="creative-name">Visual &amp; Brand Support</div>
+        <div class="creative-desc">Light-touch creative direction to keep a brand's look and voice sharp across media and marketing touchpoints.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="label-row">
+      <div class="label-num">06</div>
+      <div class="label-title">Services</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-num">01</div>
+      <div class="service-name">Media Relations</div>
+      <div class="service-desc">Press outreach, pitching, and relationship-building with outlets and writers who actually cover your world, not a mass blast list.</div>
+    </div>
+    <div class="service-row">
+      <div class="service-num">02</div>
+      <div class="service-name">Event Strategy</div>
+      <div class="service-desc">Positioning and press planning for live events and brand moments: finding the angle before the story's even asked for.</div>
+    </div>
+    <div class="service-row">
+      <div class="service-num">03</div>
+      <div class="service-name">Creative Matchmaking</div>
+      <div class="service-desc">Connecting creatives, founders, and brands directly to the right press contact, at the right moment (the piece that's usually missing).</div>
+    </div>
+    <div class="service-row">
+      <div class="service-num">04</div>
+      <div class="service-name">Brand &amp; Marketing</div>
+      <div class="service-desc">Integrated marketing communications support for creatives and brands who need the bigger-picture strategy, not just a press release.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <h2>A business represents a skill set. A brand identity represents a Big Idea and a belief system that other people find special &amp; relevant.</h2>
+    <div class="contact-row">
+      <a class="contact-email" href="mailto:estrella@estrellaintegrated.com">estrella@estrellaintegrated.com</a>
+      <div class="contact-icons">
+        <a href="https://www.linkedin.com/in/estrellaglewis/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21h-4V9z"/></svg>
+        </a>
+        <a href="mailto:estrella@estrellaintegrated.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </a>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);letter-spacing:0.06em;text-transform:uppercase;">Los Angeles, CA</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Estrella G. Lewis</div>
+  <div>PR / Analytics / Creative Marketing</div>
+</footer>
+
+<script>
+  // Highlight the active jump-nav pill based on scroll position
+  (function(){
+    var links = document.querySelectorAll('.section-nav a');
+    var sections = Array.from(links).map(function(l){
+      return document.querySelector(l.getAttribute('href'));
+    });
+    function onScroll(){
+      var pos = window.scrollY + 120;
+      var activeIndex = 0;
+      sections.forEach(function(sec, i){
+        if(sec && sec.offsetTop <= pos) activeIndex = i;
+      });
+      links.forEach(function(l, i){
+        l.classList.toggle('active', i === activeIndex);
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
